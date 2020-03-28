@@ -1,0 +1,67 @@
+﻿@model blogSitesi.Models.Uye
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="alert alert-primary">
+    <h2>Üye Detaylar</h2>
+</div>
+
+<div style="margin-left:15px;">
+    <dl class="dl-horizontal" style="font-size:25px;">
+        <dt>
+            @Html.DisplayNameFor(model => model.Yetki.yetki1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yetki.yetki1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciSifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciSifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciFoto)
+        </dt>
+
+        <dd>
+            <img src="@Model.kullaniciFoto" alt="@Model.kullaniciAdSoyad" width="75" class="img-circle img-responsive" />
+        </dd>
+
+    </dl>
+</div>
+<p style="margin-left:15px;">
+    @Html.ActionLink("Güncelleme Sayfasına Git", "Edit", new { id = Model.uyeId }, new { @class = "btn btn-primary" }) |
+    <a class="btn btn-primary" style="color:white" href="/AdminUye/Index">Geri Dön</a>
+</p>

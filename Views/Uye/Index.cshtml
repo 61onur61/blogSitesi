@@ -1,0 +1,108 @@
+﻿@model blogSitesi.Models.Uye
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <div style="background-color:#1ABC9C">
+        <h2 style="text-align:center;color:#FFFFFF;border-collapse:collapse">Üye Profil</h2>
+    </div>
+    <hr />
+
+
+
+
+    @*<table class="table table-striped table-hover">
+        <tr>
+            <th>
+                <label style="font-weight:bolder">@Html.LabelFor(x => x.kullaniciAd) :</label> @Html.TextBoxFor(x => x.kullaniciAd, new { @class = "form-control"})
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label style="font-weight:bolder">@Html.LabelFor(x => x.kullaniciAdSoyad) :</label> @Html.TextBoxFor(x => x.kullaniciAdSoyad, new { @class = "form-control" })
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label style="font-weight:bolder">@Html.LabelFor(x => x.kullaniciEmail) :</label> @Html.TextBoxFor(x => x.kullaniciEmail, new { @class = "form-control" })
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label style="font-weight:bolder">@Html.LabelFor(x => x.kullaniciSifre) :</label> @Html.TextBoxFor(x => x.kullaniciSifre, new { @class = "form-control" })
+
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label style="font-weight:bolder">@Html.LabelFor(x => x.Yetki.yetki1) :</label> @Html.TextBoxFor(x => x.Yetki.yetki1, new { @class = "form-control" })
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <img src="@Model.kullaniciFoto" style="width:75px" class="img-circle img-responsive" alt="@Model.kullaniciAdSoyad" />
+            </th>
+        </tr>
+    </table>*@
+
+
+    <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Yetki.yetki1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Yetki.yetki1 , new { @class="form-control"})
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.kullaniciAd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kullaniciAd)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.kullaniciEmail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kullaniciEmail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.kullaniciSifre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kullaniciSifre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.kullaniciAdSoyad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kullaniciAdSoyad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.kullaniciFoto)
+            </dt>
+
+            <dd>
+                <img src="@Model.kullaniciFoto" class="img-circle img-responsive" alt="@Model.kullaniciAdSoyad" />
+            </dd>
+
+        </dl>
+</div>
+<p>
+    @Html.ActionLink("Güncelle", "Edit", new { id = Model.uyeId } , new { @class="btn btn-default"})
+
+</p>

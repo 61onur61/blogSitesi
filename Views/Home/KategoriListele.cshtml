@@ -1,0 +1,46 @@
+﻿@model IEnumerable<blogSitesi.Models.Kategori>
+
+@{
+     Layout = null;
+}
+
+
+<h5>Kategoriler</h5>
+
+<ul>
+    @foreach (var kategori in Model)
+    {
+
+
+        <li><a href="/Home/KategoriMakale/@kategori.kategoriId">@kategori.kategoriAd (@kategori.Makales.Count())</a></li>
+
+
+    }
+</ul>
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.kategoriAd)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategoriAd)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.kategoriId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.kategoriId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.kategoriId })
+            </td>
+        </tr>
+    }
+
+    </table>*@

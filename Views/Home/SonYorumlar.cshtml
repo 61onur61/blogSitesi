@@ -1,0 +1,32 @@
+﻿@model IEnumerable<blogSitesi.Models.Yorum>
+
+@{
+    Layout = null;
+}
+<div class="comments container">
+    @foreach (var item in Model)
+    {
+    <ul>
+        <li class="comment container">
+            <div class="user">
+                <figure>
+                    <a href="#">
+                        <img class="img-circle img-responsive" width="3" src="@item.Uye.kullaniciFoto" alt="@item.Uye.kullaniciAdSoyad" />
+                    </a>
+                </figure>
+                <div class="name text-center">
+                    <a href="#">@item.Uye.kullaniciAd</a>
+                </div>
+            </div>
+            <div class="comment-box" style="width:100%">
+                <div class="info">
+                    <div class="time-ago">@item.yorumTarih</div>
+                </div>
+                <div class="text">
+                    @item.yorumIcerik
+                </div>
+            </div>
+        </li>
+    </ul>
+    }
+</div>

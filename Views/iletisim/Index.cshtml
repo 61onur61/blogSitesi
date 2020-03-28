@@ -1,0 +1,45 @@
+﻿@model blogSitesi.Models.Mesaj
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div class="form-horizontal">
+        <div style="background-color:#1ABC9C">
+            <h2 style="text-align:center;color:#FFFFFF;border-collapse:collapse">İletişim Formu</h2>
+        </div>
+        <span class="alert-danger h5">@ViewBag.Uyari</span>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gonderen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.Gonderen, new { @class = "form-control col-md-10" })
+                @Html.ValidationMessageFor(model => model.Gonderen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Konu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Konu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Icerik, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(x => x.Icerik, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Icerik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="btn1" value="Gönder" class="btn btn-default" />
+            </div>
+        </div>
+        @*<div>
+                <button class="btn btn-default" id="btn1">Gönder</button>
+            </div>*@
+    </div>
+</form>

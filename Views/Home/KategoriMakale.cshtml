@@ -1,0 +1,78 @@
+﻿@model IEnumerable<blogSitesi.Models.Makale>
+
+@{
+    ViewBag.Title = "KategoriMakale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using GridMvc.Html
+<h2>Kategoriye Ait Makaleler</h2>
+
+@Html.Grid(Model).Columns(columns =>
+                        {
+                            columns.Add(m => m.Kategori.kategoriAd).Titled("Kategoriler").SetWidth(110).Sortable(true).Filterable(true);
+                            columns.Add(m => m.makaleBaslik).Sortable(true).Filterable(true);
+                            columns.Add(m => m.makaleTarih).Sortable(true).Filterable(true);
+                            columns.Add(m => m.makaleOkunma).Sortable(true).Filterable(true);
+                            columns.Add(m => m.Uye.kullaniciAd).Sortable(true).Filterable(true);
+                        }).WithPaging(3)
+
+<script>
+    $(function () {
+        pageGrids.offresGrid.lang = GridMvc.lang.ru;
+         });
+</script>
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategori.kategoriAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uye.kullaniciAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.makaleBaslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.makaleIcerik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.makaleFoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.makaleTarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.makaleOkunma)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kategori.kategoriAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uye.kullaniciAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.makaleBaslik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.makaleIcerik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.makaleFoto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.makaleTarih)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.makaleOkunma)
+                </td>
+            </tr>
+        }
+
+    </table>*@

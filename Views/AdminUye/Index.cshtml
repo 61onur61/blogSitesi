@@ -1,0 +1,93 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<blogSitesi.Models.Uye>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="alert alert-primary">
+    <h2>Üyeler</h2>
+</div>
+@using (Html.BeginForm("Index", "AdminUye", FormMethod.Get))
+{
+    <div class="input-group">
+        @Html.TextBox("a", null, new { @class = "form-control" })
+        @*<input class="form-control bg-light border-0 small" placeholder="Aranacak Kelimeyi Giriniz..." aria-label="Search" aria-describedby="basic-addon2">*@
+        <div class="input-group-append">
+
+
+            <button class="btn btn-primary" type="submit" value="Ara">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+}
+
+<table class="table table-striped">
+    <tr style="background-color:#4C71DE; color:#FFFFFF">
+        <th>
+            @Html.Label("Yetki")
+        </th>
+        <th>
+            @Html.Label("Kullanıcı Adı")
+        </th>
+        <th>
+            @Html.Label("Email")
+        </th>
+        <th>
+            @Html.Label("Şifre")
+        </th>
+        <th>
+            @Html.Label("Ad Soyad")
+        </th>
+        <th>
+            @Html.Label("Fotoğraf")
+        </th>
+        <th>
+            @Html.Label("İşlemler")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yetki.yetki1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciSifre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciAdSoyad)
+            </td>
+            <td>
+                <img src="@item.kullaniciFoto" alt="@item.kullaniciAdSoyad" width="75" class="img-circle img-responsive" />
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.uyeId }, new { @class = "fas fa-edit" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.uyeId }, new { @class = "fas fa-info-circle" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.uyeId }, new { @class = "fas fa-trash-alt" })
+            </td>
+        </tr>
+    }
+
+</table>
+@*<p>
+        <a class="btn btn-primary" style="color:white" href="/AdminUye/Create">Üye Ekle</a>
+    </p>*@
+
+<div class="row text-center" style="margin-left:700px;">
+    <div class="text-center">
+        <div class="pagedList pagination">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<blogSitesi.Models.Makale>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:#1ABC9C">
+    <h2 style="text-align:center;color:#FFFFFF;border-collapse:collapse">Makaleler</h2>
+</div>
+<div class="posts container">
+    @foreach (var makale in Model)
+    {
+    <article class="blog-post">
+        <header>
+            <h2>
+                <a href="/Home/MakaleDetay/@makale.makaleId">@makale.makaleBaslik</a>
+            </h2>
+            <ul class="info">
+                <li><img class="img-circle img-responsive" width="75" src="@makale.Uye.kullaniciFoto" alt="@makale.Uye.kullaniciAd" /></li>
+                <li><span class="glyphicon glyphicon-edit">@makale.Kategori.kategoriAd (@makale.Kategori.Makales.Count())</span></li>
+                <li><a href="/Home/MakaleDetay/@makale.makaleId"><span class="glyphicon glyphicon-time"> @String.Format("{0: MM.dd.yyyy}", makale.makaleTarih)</span></a></li>
+                <li><a href="/Uye/UyeProfil/@makale.Uye.uyeId"><span class="glyphicon glyphicon-user"> @makale.Uye.kullaniciAdSoyad</span></a></li>
+                <li><span class="glyphicon glyphicon-tags"> @makale.Etikets.Count()</span></li>
+                <li><span class="glyphicon glyphicon-envelope"> @makale.Yorums.Count()</span></li>
+            </ul>
+        </header>
+        <div class="content" style="text-align:left;padding:10px;">
+            <figure>
+                <a href="#" style="width:auto;height:auto;">
+                    <img src="@makale.makaleFoto" alt="@makale.makaleBaslik" />
+                </a>
+            </figure>
+            @if (makale.makaleIcerik.Length > 300)
+            {
+                <div class="text">
+                    @Html.Raw(makale.makaleIcerik.Substring(0, 300)) ...
+                </div>
+            }
+            else
+            {
+                <div class="text">
+                    @Html.Raw(makale.makaleIcerik) ...
+                </div>
+            }
+
+            <a href="/Home/MakaleDetay/@makale.makaleId" class="btn btn-default">Devamını Oku</a>
+        </div>
+    </article>
+    }
+    <div class="row">
+        <div class="text-center">
+            <div class="pagedList pagination">
+                @Html.PagedListPager(Model, Page => Url.Action("Index",new { Page}),PagedListRenderOptions.ClassicPlusFirstAndLast)
+            </div>
+        </div>
+    </div>
+
+    
+   
+</div>
+

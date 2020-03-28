@@ -1,0 +1,28 @@
+﻿@model blogSitesi.Models.Kategori
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="alert alert-primary">
+    <h2>Kategori Detaylar</h2>
+</div>
+
+<div style="margin-left:15px">
+    <dl class="dl-horizontal">
+        <dt style="font-size:25px;">
+            @Html.DisplayNameFor(model => model.kategoriAd)
+        </dt>
+
+        <dd style="font-size:25px;">
+            @Html.DisplayFor(model => model.kategoriAd)
+        </dd>
+
+    </dl>
+</div>
+<p style="margin-left:15px">
+    @Html.ActionLink("Bağlı Makaleler", "BagliMakaleler", new { id = Model.kategoriId }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Güncelle Sayfasına Git", "Edit", new { id = Model.kategoriId }, new { @class = "btn btn-primary" }) |
+    <a class="btn btn-primary" style="color:white" href="/AdminKategori/Index">Geri Dön</a>
+</p>

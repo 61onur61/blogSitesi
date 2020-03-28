@@ -1,0 +1,216 @@
+﻿@model blogSitesi.Models.Makale
+
+@{
+    ViewBag.Title = "MakaleDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:#1ABC9C">
+    <h2 style="text-align:center;color:#FFFFFF;border-collapse:collapse">Makale Detay Sayfası</h2>
+</div>
+
+<div>
+<article class="blog-post">
+    <header>
+        <h2>
+            <a href="#">@Model.makaleBaslik</a>
+        </h2>
+        <ul class="info">
+            <li><a href="/Home/MakaleDetay/@Model.makaleId"><span class="glyphicon glyphicon-time"> @String.Format("{0: MM.dd.yyyy}", Model.makaleTarih)</span></a></li>
+            <li><a href="/Uye/UyeProfil/@Model.Uye.uyeId"><span class="glyphicon glyphicon-user"> @Model.Uye.kullaniciAdSoyad</span></a></li>
+            <li><span class="glyphicon glyphicon-tags"> @Model.Etikets.Count()</span></li>
+            <li><span class="glyphicon glyphicon-edit"> @Model.Kategori.kategoriAd (@Model.Kategori.Makales.Count())</span></li>
+            <li><span class="glyphicon glyphicon-envelope"> @Model.Yorums.Count()</span></li>
+        </ul>
+    </header>
+    <p class="text-editor">
+    @*<p>
+        <em>
+            @if (Model.makaleIcerik.Length > 300)
+            {
+                <span>
+                    @Html.Raw(Model.makaleIcerik.Substring(0, 300)) ...
+                </span>
+            }
+        </em>
+    </p>*@
+    <h2>@Model.makaleBaslik</h2>
+    <figure>
+        <img style="width:auto;height:auto;" src="@Model.makaleFoto" alt="@Model.makaleBaslik" />
+        <figcaption></figcaption>
+    </figure>
+    <p class="text">
+        @Html.Raw(Model.makaleIcerik)
+    </p>
+
+    <hr />
+    <div class="author-wrap">
+        <div class="author">
+            <ul class="info">
+                <li>
+                    <a href="/Uye/UyeProfil/@Model.Uye.uyeId">
+                        <img class="img-circle img-responsive" src="@Model.Uye.kullaniciFoto" alt="@Model.Uye.kullaniciAdSoyad" />
+                    </a>
+                </li>
+
+                <li class="name">
+                    <a href="/Uye/UyeProfil/@Model.Uye.uyeId">@Model.Uye.kullaniciAdSoyad</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    <hr />
+
+    <h5>Makale Etiketleri</h5>
+    @foreach (var etiket in Model.Etikets)
+    {
+
+        <ul class="info">
+            <li><a href="/Home/MakaleDetay/@Model.makaleId" class="btn btn-default">@etiket.etiketAd</a></li>
+        </ul>
+    }
+        @*<div>
+            <ul class="social-icons nav navbar-nav">
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+            </ul>
+        </div>*@
+</article>
+
+
+@if (Session["uyeId"] != null)
+{
+    <div class="write-comment container">
+        <h3>Yorum Yap</h3>
+        <div class="user">
+            <figure>
+                <a href="#">
+                    <img src="@Session["uyeFoto"]" />
+                </a>
+            </figure>
+            <div class="name text-center">
+                <a href="#">@Session["kullaniciAdi"].ToString()</a>
+            </div>
+        </div>
+        <div class="textarea-wrap">
+            <form action="#">
+                <textarea id="yorum" typeof="text" placeholder="Birşeyler yaz..." name="comment-message"></textarea>
+                <button type="submit" class="send" id="gonder">Gönder</button>
+            </form>
+        </div>
+        <hr>
+    </div>
+}
+else
+{
+    <div>
+        <h3>Makaleye Yorum Yapabilmek için Üye Girişi Yapmalısınız</h3>
+        <p><a class="btn btn-success" href="/Uye/Login/">Giriş Yap</a></p>
+    </div>
+    
+}
+<div class="comments">
+    @foreach (var yorum in Model.Yorums.ToList())
+    {
+        <ul>
+            <li class="comment">
+                <div class="user">
+                    <figure>
+                        <a href="#">
+                            <img class="img-circle img-responsive" width="75" src="@yorum.Uye.kullaniciFoto" alt="@yorum.Uye.kullaniciAdSoyad" />
+                        </a>
+                    </figure>
+                    <div class="name text-center">
+                        <a href="#">@yorum.Uye.kullaniciAd</a>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <div class="info">
+                        <div class="time-ago">@yorum.yorumTarih</div>
+                    </div>
+                    <div class="text">
+                        @yorum.yorumIcerik - @if (Convert.ToInt32(Session["uyeId"]) == yorum.UyeId)
+                        {
+                            <a class="btn btn-danger" id="yorumSil" href="/Home/YorumSil/@yorum.yorumId">Sil</a>
+                        }
+                    </div>
+                </div>
+            </li>
+        </ul>
+    }
+</div>
+</div>
+
+
+@*<ul>
+        @foreach (var yorum in Model.Yorums.ToList())
+        {
+
+            <div class="user">
+                <figure>
+                    <a href="#" class="fa-pull-left">
+                        <img class="img-circle img-responsive" width="75" src="@yorum.Uye.kullaniciFoto" alt="@yorum.Uye.kullaniciAdSoyad" />
+                    </a>
+                </figure>
+
+
+                <a href="#">@yorum.Uye.kullaniciAd</a>
+
+
+                <div class="time-ago">@yorum.yorumTarih</div>
+
+
+                @yorum.yorumIcerik - @if (Convert.ToInt32(Session["uyeId"]) == yorum.UyeId)
+                {
+                    <a class="btn btn-danger" href="/Home/YorumSil">Sil</a>
+                }
+            </div>
+
+        }
+    </ul>*@
+
+<script src="~/Content/Cleanse/js/vendor/jquery-1.10.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script src="~/Content/Cleanse/js/vendor/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/Content/Cleanse/js/vendor/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#gonder").click(function () {
+            var yorumunuz = $("#yorum").val();
+            $.ajax({
+                url: '/Home/YorumYap/',
+                data: { yorum:yorumunuz, makaleId:@Model.makaleId },
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+
+                    alert("yorum yapıldı! yorumunuz: " + yorumunuz)
+                }
+            })
+        })
+    })
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Home/OkunmaArttir/',
+            data: { makaleId:@Model.makaleId },
+            type: 'POST',
+        });
+    })
+</script>
+
+
+

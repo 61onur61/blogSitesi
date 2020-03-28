@@ -1,0 +1,67 @@
+﻿@model IEnumerable<blogSitesi.Models.Makale>
+@{
+    ViewBag.Title = "BaglıMakaleler";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="alert alert-primary">
+    <h2>Kategorinin İçerdiği Makaleler</h2>
+</div>
+
+<table class="table table-striped">
+    <tr style="background-color:#4C71DE; color:#FFFFFF">
+        <th>
+            @Html.Label("Kategori Adı")
+        </th>
+        <th>
+            @Html.Label("Başlık")
+        </th>
+        <th>
+            @Html.Label("Fotoğraf")
+        </th>
+        <th>
+            @Html.Label("Tarih")
+        </th>
+        <th>
+            @Html.Label("Okunma Sayısı")
+        </th>
+        <th>
+            @Html.Label("İşlemler")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.KategoriId != ViewBag.makaleId)
+        {
+            continue;
+        }
+
+        <tr>
+            <td class="alert alert-info">
+                @Html.DisplayFor(modelItem => item.Kategori.kategoriAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.makaleBaslik)
+            </td>
+            <td>
+                <img width="75" src="@item.makaleFoto" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.makaleTarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.makaleOkunma)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", "AdminMakale", new { id = item.makaleId }, new { @class = "fas fa-edit" }) |
+                @Html.ActionLink(" ", "Details", "AdminMakale", new { id = item.makaleId }, new { @class = "fas fa-info-circle" }) |
+                @Html.ActionLink(" ", "Delete", "AdminMakale", new { id = item.makaleId }, new { @class = "fas fa-trash-alt" })
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+

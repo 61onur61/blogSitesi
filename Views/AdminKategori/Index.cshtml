@@ -1,0 +1,62 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<blogSitesi.Models.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="alert alert-primary">
+    <h2>Kategoriler</h2>
+</div>
+
+@using (Html.BeginForm("Index", "AdminKategori", FormMethod.Get))
+{
+    <div class="input-group">
+        @Html.TextBox("a", null, new { @class = "form-control" })
+        @*<input class="form-control bg-light border-0 small" placeholder="Aranacak Kelimeyi Giriniz..." aria-label="Search" aria-describedby="basic-addon2">*@
+        <div class="input-group-append">
+
+
+            <button class="btn btn-primary" type="submit" value="Ara">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+}
+<table class="table table-striped">
+    <tr style="background-color:#4C71DE; color:#FFFFFF">
+        <th>
+            @Html.Label("Kategori Adı")
+        </th>
+        <th>
+            @Html.Label("İşlemler")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategoriAd)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.kategoriId }, new { @class = "fas fa-edit" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.kategoriId }, new { @class = "fas fa-info-circle" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.kategoriId }, new { @class = "fas fa-trash-alt" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a class="btn btn-primary" style="color:white" href="/AdminKategori/Create">Kategori Ekle</a>
+
+<div class="row text-center" style="margin-left:700px;">
+    <div class="text-center">
+        <div class="pagedList pagination">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
+    </div>
+</div>

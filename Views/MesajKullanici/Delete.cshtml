@@ -1,0 +1,65 @@
+﻿@model blogSitesi.Models.Mesaj
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="alert alert-primary">
+    <h3>Silmek İstediğinize Eminmisiniz ?</h3>
+</div>
+<div>
+    <h4>Mesaj</h4>
+    <hr />
+    <dl class="dl-horizontal" style="font-size:25px;">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gonderen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gonderen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alici)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alici)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Konu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Konu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-primary" /> |
+            <a class="btn btn-primary" style="color:white" href="/MesajKullanici/GelenMesaj">Geri Dön</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,56 @@
+﻿@model blogSitesi.Models.Kategori
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="alert alert-primary">
+    <h3>Silmek İstediğinize Eminmisiniz ?</h3>
+</div>
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="font-size:25px;">
+        <dt>
+            @Html.DisplayNameFor(model => model.kategoriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategoriAd)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-primary" /> |
+            <a class="btn btn-primary" style="color:white" href="/AdminKategori/Index">Geri Dön</a>
+        </div>
+    }
+</div>
+
+<script>
+
+    Swal.fire({
+        title: 'UYARI',
+        text: '@ViewBag.uyari2',
+        icon: '@ViewBag.icon',
+        confirmButtonText: 'Tamam'
+    })
+
+</script>
+
+<script>
+
+    Swal.fire({
+        title: 'UYARI',
+        text: '@ViewBag.uyari2',
+        icon: '@ViewBag.icon',
+        confirmButtonText: 'Tamam'
+    })
+
+
+</script>

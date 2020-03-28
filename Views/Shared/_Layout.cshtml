@@ -1,0 +1,364 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MakaleBlog</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"">
+    <link rel="icon" type="image/png" href="~/Content/Cleanse/content/favicon.png">
+
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Cleanse/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Cleanse/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/Cleanse/css/typicons.css">
+    <link rel="stylesheet" href="~/Content/Cleanse/css/flexslider.css">
+    <link rel="stylesheet" href="~/Content/Cleanse/css/jquery.selectBoxIt.css">
+    <link rel="stylesheet" href="~/Content/Cleanse/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="~/Content/Cleanse/css/main.css">
+    <script src="~/Content/Cleanse/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    @*<script type="text/javascript">
+
+            $(document).on('click', '#yorumSil',function () {
+
+                $.ajax({
+                    url: '/Home/YorumSil/',
+                    data: JSON.stringify(menuObject),
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+
+                        alert("yorum yapıldı! yorumunuz: ")
+                    }
+                })
+            })
+
+
+        </script>*@
+
+    <style>
+        .input-validation-error {
+            border: 1px solid red;
+            margin-bottom: 20px;
+        }
+
+        .field-validation-error {
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-default hidden-menu hidden-menu-up">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header col-sm-3">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="menu-title">Menu</span>
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="social-icons nav navbar-nav">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                @if (Session["uyeid"] != null)
+                                {
+                                    <a href="#" id="navbarDrop2" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">@Session["kullaniciAdi"].ToString()</span></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop2">
+
+                                        <li><a href="/Uye/Index/@Session["uyeId"]">@Session["kullaniciAdi"].ToString() Profil</a></li>
+
+                                        @if (Convert.ToInt32(Session["yetkiid"]) == 1)
+                                        {
+                                            <li>
+                                                <a href="/Admin/Index" target="_blank">Admin Paneli</a>
+                                            </li>
+                                        }
+                                        @if (Convert.ToInt32(Session["yetkiid"]) == 2)
+                                        {
+                                            <li>
+                                                <a href="/MesajKullanici/GelenMesaj" target="_blank">Kullanici Paneli</a>
+                                            </li>
+                                        }
+                                        @if (Convert.ToInt32(Session["yetkiid"]) == 3)
+                                        {
+                                            <li>
+                                                <a href="/MesajKullanici/GelenMesaj" target="_blank">Kullanici Paneli</a>
+                                            </li>
+                                        }
+                                        <li class="divider"></li>
+                                        <li><a href="/Uye/Logout">Çıkış</a></li>
+
+
+
+                                    </ul>
+                                }
+                                else
+                                {
+                                <li>
+                                    <a href="/Uye/Login">Giriş</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="/Uye/Create">Kayıt Ol</a>
+                                </li>
+                            }
+
+
+                                <li><a href="/Home/Index/">Anasayfa</a></li>
+
+                                <li><a href="/Home/Hakkimizda/">Hakkımızda</a></li>
+
+                                <li><a href="/iletisim/Index/">İletişim</a></li>
+
+
+                                @*@if (Session["uyeid"] != null)
+                                    {
+                                        <li>
+                                            <a href="/Uye/Index/@Session["uyeId"]">@Session["kullaniciAdi"].ToString()</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Uye/Logout">Çıkış</a>
+                                        </li>
+                                        if (Convert.ToInt32(Session["yetkiid"]) == 1)
+                                        {
+                                            <li>
+                                                <a href="/Admin/Index" target="_blank">Admin Paneli</a>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a href="/Uye/Login">Giriş</a>
+                                        </li>
+                                    }*@
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header class="main-header hidden-xs container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo">
+                            <figure>
+                                <a href="/Home/Index/"><img src="~/Content/Cleanse/content/makale.png" style="width:100px" alt="Logo" /></a>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 text-right">
+
+                        @Html.Partial("AraPartial")
+
+                        <a href="#" class="menu-button">Menu <i class="fa fa-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header class="mobile-logo visible-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="logo">
+                            <figure>
+                                <a href="index.html"><img src="content/logo.png" alt="Logo" /></a>
+                            </figure>
+                        </div>
+                        <div class="mobile-search">
+                            <form action="#">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="s" placeholder="Search something interesting">
+                                    <span class="input-group-addon"><button type="submit"><i class="fa fa-search"></i></button></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Makale Blog</h1>
+                        <h4>Makale Okuyup Paylaşabileceğiniz Blog</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        @RenderBody()
+                    </div>
+                    <aside class="col-sm-4">
+                        <div>
+                                @{
+                                    Html.RenderAction("Chat", "Home");
+                                }
+                            </div>
+                        <div class="widgets">
+                            <div class="widget categories">
+                                @{
+                                    Html.RenderAction("KategoriListele", "Home");
+                                }
+                            </div>
+                            <div class="widget posts">
+                                <h5>Makaleler</h5>
+                                <div class="widget-tabs">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#popular" data-toggle="tab">En Popüler</a></li>
+                                        <li><span>/</span></li>
+                                        <li><a href="#fresh" data-toggle="tab">En Yeni</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="popular">
+                                            <ul>
+                                                @{
+                                                    Html.RenderAction("PopularMakaleler", "Home");
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane" id="fresh">
+                                            <ul>
+                                                @{
+                                                    Html.RenderAction("SonMakaleler", "Home");
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget blog-tags">
+                                @{
+                                    Html.RenderAction("EtiketListele", "Home");
+                                }
+                            </div>
+                            <div class="widget regular-text text-center container">
+                                @{
+                                    Html.RenderAction("SonYorumlar", "Home");
+                                }
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <footer class="main-footer">
+            <div class="footer-newsletter">
+                <div class="container">
+
+                    <div style="color:#FFFFFF;text-align:center" class="copyright">© @DateTime.Now.Date.Day/@DateTime.Now.Date.Month/@DateTime.Now.Date.Year<br /> Developed by <a style="color:#FFFFFF;text-align:center" title="WordPress Themes" href="http://teothemes.com/">Software</a></div>
+
+                </div>
+            </div>
+            <div class="footer-social">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </div>
+
+        <script src="@Url.Content("~/Scripts/gridmvc.lang.ru.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/gridmvc.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"></script>
+        @*<script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+            <script src="~/SignalR/Hubs/"></script>*@
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery-1.10.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/bootstrap.min.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.isotope.min.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.isotope.perfectmasonry.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.raty.min.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.flexslider.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.mousewheel.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.mCustomScrollbar.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.hoverdir.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.selectBoxIt.min.js"></script>
+        <script src="~/Content/Cleanse/js/vendor/jquery.fancybox.pack.js"></script>
+        <script src="~/Content/Cleanse/js/main.js"></script>
+        <!--Script references. -->
+        <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+        <!--Reference the SignalR library. -->
+        <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+        <!--Reference the autogenerated SignalR hub script. -->
+        <script src="~/SignalR/Hubs/"></script>
+        <!--SignalR script to update the chat page and send messages.-->
+        <script>
+            $(function () {
+                // Reference the auto-generated proxy for the hub.
+                var chat = $.connection.chatHub;
+                // Create a function that the hub can call back to display messages.
+                chat.client.addNewMessageToPage = function (name, message) {
+                    if (name == "Atir") {
+                        // Add the message to the page.
+                        $('#discussion').append('<p style="color:green; text-align:left; width:500px"><strong><img = src="https://www.phplivesupport.com/pics/icons/avatars/public/avatar_7.png">'
+                            + ' </strong> ' + htmlEncode(name) + '/' + htmlEncode(message) + '</p>');
+                    }
+                    else if (name != "Atir") {
+                        // Add the message to the page.
+                        $('#discussion').append('<p style="color:blue;text-align:left;"><strong><img = src="https://www.phplivesupport.com/pics/icons/avatars/public/avatar_71.png">'
+                            + '<p style="color:green;text-align:left;"><strong>' + htmlEncode(name) + ' </strong> ' + ' : ' + '<span style="color:blue;text-align:left;"><strong>' + htmlEncode(message) + '</p>');
+                    }
+                };
+                // Get the user name and store it to prepend to messages.
+                //$('#displayname').val(prompt('Enter your name:', ''));
+                $('#displayname').focus();
+                // Set initial focus to message input box.
+                $('#message').focus();
+                // Start the connection.
+                $.connection.hub.start().done(function () {
+                    $('#sendmessage').click(function () {
+                        // Call the Send method on the hub.
+                        chat.server.send($('#displayname').val(), $('#message').val());
+                        // Clear text box and reset focus for next comment.
+                        $('#message').val('').focus();
+                    });
+                });
+            });
+            // This optional function html-encodes messages for display in the page.
+            function htmlEncode(value) {
+                var encodedValue = $('<div />').text(value).html();
+                return encodedValue;
+            }
+        </script>
+        <script>
+            function Disabled() {
+                document.getElementById("displayname").disabled = true;
+            }
+        </script>
+    </body>
+</html>

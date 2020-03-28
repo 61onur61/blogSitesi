@@ -1,0 +1,19 @@
+﻿@model IEnumerable<blogSitesi.Models.Makale>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li>
+        <figure>
+            <a href="#">
+                <img src="@item.makaleFoto" alt="@item.makaleBaslik" />
+            </a>
+        </figure>
+        <div class="text">
+            <a href="/Home/MakaleDetay/@item.makaleId">@item.makaleBaslik (@item.makaleOkunma)</a>
+        </div>
+    </li>
+}

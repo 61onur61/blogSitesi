@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cleanse</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="content/favicon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/typicons.css">
+        <link rel="stylesheet" href="css/flexslider.css">
+        <link rel="stylesheet" href="css/jquery.selectBoxIt.css">
+        <link rel="stylesheet" href="css/jquery.fancybox.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <header class="navbar navbar-default hidden-menu hidden-menu-up">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header col-sm-3">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="menu-title">Menu</span>
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <ul class="social-icons nav navbar-nav">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="#" id="navbarDrop2" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop2">
+                                        <li><a href="index.html">Home Default</a></li>
+                                        <li><a href="index02.html">Home Alternate</a></li>
+                                        <li><a href="index03.html">Home Alternate 2</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" id="navbarDrop1" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop1">
+                                        <li><a href="portfolio-4col.html">Portofolio 4 columns</a></li>
+                                        <li><a href="portfolio-3col.html">Portofolio 3 columns</a></li>
+                                        <li><a href="portfolio-2col.html">Portofolio 2 columns</a></li>
+                                        <li><a href="portfolio-1col.html">Portofolio 1 columns</a></li>
+                                        <li><a href="portfolio-fullpage.html">Portofolio Fullpage</a></li>
+                                        <li><a href="portfolio-fullscreen.html">Portofolio Fullscreen</a></li>
+										<li><a href="portfolio-single.html">Portofolio Single</a></li>
+                                    </ul>
+                                </li>
+								<li><a href="about-us.html">About</a></li>
+								<li class="dropdown">
+                                    <a href="elements.html" id="navbarDrop4" class="dropdown-toggle" data-toggle="dropdown">Features</a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop4">
+										<li><a href="elements.html">Shortcodes</a></li>
+										<li><a href="404.html">404</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="blog.html" id="navbarDrop3" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop3">
+										<li><a href="blog.html">Blog page</a></li>
+										<li><a href="blog-single.html">Single post - logged user</a></li>
+										<li><a href="blog-single02.html">Single post 2 - anonymous</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header class="main-header hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo">
+                            <figure>
+                                <a href="index.html"><img src="content/logo.png" alt="Logo"/></a>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 text-right">
+                        <div class="search-wrap active">
+                            <div class="search-input">
+                                <form action="#">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="s" placeholder="Search something interesting">
+                                        <span class="input-group-addon"><button type="submit"><i class="fa fa-search"></i></button></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <a href="#" class="menu-button">Menu <i class="fa fa-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header class="mobile-logo visible-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="logo">
+                            <figure>
+                                <a href="index.html"><img src="content/logo.png" alt="Logo"/></a>
+                            </figure>
+                        </div>
+                        <div class="mobile-search">
+                            <form action="#">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="s" placeholder="Search something interesting">
+                                    <span class="input-group-addon"><button type="submit"><i class="fa fa-search"></i></button></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="portfolio-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="details-selector">
+                            <ul>
+                                <li class="active"><a href="#" data-filter=".filter-popular">Popular</a></li>
+                                <li>/</li>
+                                <li><a href="#" data-filter=".filter-fresh">Fresh</a></li>
+                                <li>/</li>
+                                <li><a href="#" data-filter="*">All</a></li>
+                            </ul>
+                            <button class="btn btn-default" rel="minimal">Minimal</button>
+                            <button class="btn btn-default btn-selected" rel="detailed">Detailed</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <div class="layout-selector">
+                            <ul>
+                                <li><a href="portfolio-fullscreen.html" class="layout-full">Portofolio Fullscreen</a></li>
+                                <li><a href="portfolio-fullpage.html" class="layout-fullpage">Portofolio Fullpage</a></li>
+                                <li><a href="portfolio-1col.html" class="layout-1col">Portofolio 1 columns</a></li>
+                                <li><a href="portfolio-2col.html" class="layout-2col active">Portofolio 2 columns</a></li>
+                                <li><a href="portfolio-3col.html" class="layout-3col">Portofolio 3 columns</a></li>
+                                <li><a href="portfolio-4col.html"  class="layout-4col">Portofolio 4 columns</a></li>
+                            </ul>
+                            <select name="categories" class="custom-select category-selector">
+                                <option value="*">Categories</option>
+                                <option value=".filter-applications">Applications</option>
+                                <option value=".filter-backgrounds">Backgrounds</option>
+                                <option value=".filter-patterns">Patterns</option>
+                                <option value=".filter-branding">Branding & Stationary</option>
+                                <option value=".filter-devices">Devices</option>
+                                <option value=".filter-fonts">Fonts</option>
+                                <option value=".filter-forms">Forms</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hp-portfolio-three col2">
+                        <div class="row">
+                            <div class="col-sm-6 article-wrap filter-popular filter-applications">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three01.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  illustration  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">I Love Donut Bonbon Cackes Samoa Cake Glasses</a></h4>
+                                        <p>Wafer jelly-o sesame snaps oat cake. Sweet NERDIES brownie apple pie I love I love ice cream.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-fresh filter-applications">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three02.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  Graphic Design  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">Chocolate bar jelly-o sesame snaps oat cake.</a></h4>
+                                        <p>Candy marzipan candy sesame snaps. Danish jelly I love oat cake I love. Topping soufflé macaroon</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-popular filter-fresh filter-backgrounds">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three03.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  typography  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">Marshmallow I love gummies sugar plum jelly-o pie.</a></h4>
+                                        <p>Chocolate bar jelly-o sesame snaps oat cake. Cookie unerdwear.com brownie apple pie I love I</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-fresh filter-backgrounds">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three04.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  illustration  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">I Love Donut Bonbon Cackes Samoa Cake Glasses</a></h4>
+                                        <p>Wafer jelly-o sesame snaps oat cake. Sweet NERDIES brownie apple pie I love I love ice cream.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-popular filter-fresh filter-patterns filter-branding">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three05.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  Graphic Design  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">Chocolate bar jelly-o sesame snaps oat cake.</a></h4>
+                                        <p>Candy marzipan candy sesame snaps. Danish jelly I love oat cake I love. Topping soufflé macaroon</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-fresh filter-branding filter-forms">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three06.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  Graphic Design  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">Marshmallow I love gummies sugar plum jelly-o pie.</a></h4>
+                                        <p>Chocolate bar jelly-o sesame snaps oat cake. Cookie unerdwear.com brownie apple pie I love I</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-fresh filter-fonts">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three07.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  illustration  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">I Love Donut Bonbon Cackes Samoa Cake Glasses</a></h4>
+                                        <p>Wafer jelly-o sesame snaps oat cake. Sweet NERDIES brownie apple pie I love I love ice cream.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-popular filter-forms">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three08.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  Graphic Design  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">Chocolate bar jelly-o sesame snaps oat cake.</a></h4>
+                                        <p>Candy marzipan candy sesame snaps. Danish jelly I love oat cake I love. Topping soufflé macaroon</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 article-wrap filter-popular filter-forms">
+                                <article>
+                                    <figure>
+                                        <img src="content/hp-portfolio-three09.jpg" alt=""/>
+                                        <div class="overlay">
+                                            <a href="#" class="category">{  typography  }</a>
+                                            <section class="button-wrapper">
+                                                <a href="portfolio-single.html" class="btn btn-default btn-alternate">Details</a>
+                                            </section>
+                                            <footer>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-heart"></i> 56</a>
+                                                <a href="#" class="icon-link"><i class="typcn typcn-eye-outline"></i> 986</a>
+                                            </footer>
+                                            <div class="background"></div>
+                                        </div>
+                                    </figure>
+                                    <div class="text">
+                                        <h4><a href="portfolio-single.html">Marshmallow I love gummies sugar plum jelly-o pie.</a></h4>
+                                        <p>Chocolate bar jelly-o sesame snaps oat cake. Cookie unerdwear.com brownie apple pie I love I</p>
+                                    </div>
+                                </article>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <a href="#" class="load-more">Load More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="main-footer">
+            <div class="footer-newsletter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 left">
+                            <h2>Subscribe to our <strong>newsletter</strong></h2>
+                            <p>Receive periodic articles, updates, freebies <br/> and premium items; every month.</p>
+                        </div>
+                        <div class="col-sm-4 right">
+                            <form action="#">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" name="newsletter-email" placeholder="Your Email:">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default" type="submit"><i class="fa fa-check"></i></button>
+                                </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-social">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widgets">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="footer-widget">
+                                <a href="#" class="footer-logo"><img src="content/logo.png" alt="Logo"/></a>
+                                <div class="copyright">© 2014 yourcompanyname <br /> Developed by <a title="WordPress Themes" href="http://teothemes.com/">TeoThemes</a></div>
+                                <div class="motto">The only Theme that you will need!</div>
+                                <address>
+                                    PO Box 21177 <br/>
+                                    Little Lonsdale St, Melbourne <br/>
+                                    Victoria 8011 Australia
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="footer-widget">
+                                <h2>Popular Post</h2>
+                                <ul class="popular-post">
+                                    <li>
+                                        <figure>
+                                            <a href="blog-single.html">
+                                                <img src="content/footer-post01.jpg" alt=""/>
+                                            </a>
+                                        </figure>
+                                        <div class="text">
+                                            <a href="blog-single.html">I Love Donut Bonbon Cackes</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <figure>
+                                            <a href="blog-single.html">
+                                                <img src="content/footer-post02.jpg" alt=""/>
+                                            </a>
+                                        </figure>
+                                        <div class="text">
+                                            <a href="blog-single.html">Candy fruitcake biscuit chupa chups</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <figure>
+                                            <a href="blog-single.html">
+                                                <img src="content/footer-post03.jpg" alt=""/>
+                                            </a>
+                                        </figure>
+                                        <div class="text">
+                                            <a href="blog-single.html">Candy fruitcake biscuit chupa chups</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="footer-widget">
+                                <h2>Twitter Feed</h2>
+                                <div class="twitter-feed">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="content/twitter-logo.jpg" alt=""/>
+                                        </a>
+                                    </figure>
+                                    <div class="text">
+                                        <a href="#">Envato</a>
+                                        <span class="date">10 hours agao</span>
+                                    </div>
+                                    <div class="content">Thanks so much for all the love for our site : <a href="#">envato.com</a>.  We have such an amazing community!</div>
+                                    <a href="#" class="btn btn-info btn-sm pull-left">Follow us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="footer-widget">
+                                <h2>About</h2>
+                                <div class="text-widget">
+                                    <p>Cheesecake tiramisu dragée gummies donut cotton candy ice cream I love halvah. Gummies croissant I love gummies gummies. Marshmallow I love gummies sugar plum jelly-o pie. Sweet ice cream donut tart liquorice tootsie roll chocolate cake tiramisu bonbon.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </div>
+        <script src="js/vendor/jquery-1.10.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/jquery.isotope.min.js"></script>
+        <script src="js/vendor/jquery.isotope.perfectmasonry.js"></script>
+        <script src="js/vendor/jquery.raty.min.js"></script>
+        <script src="js/vendor/jquery.flexslider.js"></script>
+        <script src="js/vendor/jquery.mousewheel.js"></script>
+        <script src="js/vendor/jquery.mCustomScrollbar.js"></script>
+        <script src="js/vendor/jquery.hoverdir.js"></script>
+        <script src="js/vendor/jquery.selectBoxIt.min.js"></script>
+        <script src="js/vendor/jquery.fancybox.pack.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

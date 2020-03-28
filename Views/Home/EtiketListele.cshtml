@@ -1,0 +1,20 @@
+﻿@model IEnumerable<blogSitesi.Models.Etiket>
+@{
+    Layout = null;
+}
+
+<h2 style="color:#C1CBD2">Etiketler</h2>
+
+<ul class="info">
+    @foreach (var etiket in Model)
+    {
+
+
+       
+            <li><a href="#" class="btn btn-default">@etiket.etiketAd</a></li>
+        
+
+
+    }
+</ul>
+

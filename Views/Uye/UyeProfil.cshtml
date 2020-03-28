@@ -1,0 +1,65 @@
+﻿@model blogSitesi.Models.Uye
+
+@{
+    ViewBag.Title = "UyeProfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UyeProfil</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Yetki.yetki1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yetki.yetki1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciFoto)
+        </dt>
+
+        <dd>
+            <img class="img-circle img-responsive" src="@Model.kullaniciFoto" alt="@Model.kullaniciAdSoyad" width="75" />
+        </dd>
+
+    </dl>
+</div>
+
+<h3>Son Eklediği Makaleler</h3>
+<div>
+    @foreach (var item in Model.Makales.OrderByDescending(m => m.makaleId).Take(5))
+    {
+        <a href="/Home/MakaleDetay/@item.makaleId" class="btn btn-default">@item.makaleBaslik</a>
+    }
+</div>
+<p>
+   
+    @Html.ActionLink("Geri Dön", "Index", "Home")
+</p>

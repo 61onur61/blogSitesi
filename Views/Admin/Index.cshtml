@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @*<link href="~/Content/web2/css/bootstrap.css" rel="stylesheet" />*@
+    @*Custom Theme files*@
+
+    <script src="~/Content/web2/js/Chart1.js"></script>
+    <!--
+        author: W3layouts
+        author URL: http://w3layouts.com
+        License: Creative Commons Attribution 3.0 Unported
+        License URL: http://creativecommons.org/licenses/by/3.0/
+        -->
+
+    <title>Esteem  An Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Esteem Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    @*<link href="~/Content/web3/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/Content/web3/css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/web3/css/export.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/web3/css/flipclock.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/web3/css/circles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/web3/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/web3/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- font-awesome-icons -->
+    @*<link href="~/Content/web3/css/font-awesome.css" rel="stylesheet">*@
+    <!-- //font-awesome-icons -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+
+</head>
+<body>
+    <div style="margin-left:110px;margin-top:50px">
+        <!-- banner -->
+        <div class="clearfix"></div>
+
+        <ul class="ca-menu">
+            <li>
+                <a href="#">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main">@ViewBag.UyeSayisi</h4>
+                        <h3 class="ca-sub">Üye Sayısı</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-newspaper" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main one">@ViewBag.MakaleSayisi</h4>
+                        <h3 class="ca-sub one">Makale Sayısı</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="far fa-comment" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main two">@ViewBag.YorumSayisi</h4>
+                        <h3 class="ca-sub two">Yorum Sayısı</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-list" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main three">@ViewBag.KategoriSayisi</h4>
+                        <h3 class="ca-sub three">Kategori Sayısı</h3>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+
+        <ul class="ca-menu">
+            <li>
+                <a href="#">
+                    <i class="fas fa-book-reader" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main">@ViewBag.PopulerMakele</h4>
+                        <h3 class="ca-sub">En Pöpüler Makale</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-certificate" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main one">@ViewBag.SonMakale</h4>
+                        <h3 class="ca-sub one">En Son Eklenen Makale</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-crown" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main">@ViewBag.EnPopulerKategori</h4>
+                        <h3 class="ca-sub">En Popüler Kategori</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-child" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main one">@ViewBag.EnAktifUye</h4>
+                        <h3 class="ca-sub one">En Aktif Üye</h3>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
